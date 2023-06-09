@@ -130,7 +130,7 @@ class Chef
         elsif platform?('ubuntu')
           apt_repository 'clickhouse' do
             uri 'https://packages.clickhouse.com/deb'
-            distribution 'stable'
+            distribution 'stable main'
             key ['8919F6BD2B48D754']
             keyserver 'keyserver.ubuntu.com'
             action :add
