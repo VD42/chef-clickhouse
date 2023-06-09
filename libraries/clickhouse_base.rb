@@ -127,6 +127,14 @@ class Chef
             enabled true
             action :create
           end
+        elsif platform?('ubuntu')
+          apt_repository 'clickhouse' do
+            uri 'https://packages.clickhouse.com/deb'
+            distribution 'stable'
+            key ['8919F6BD2B48D754']
+            keyserver 'keyserver.ubuntu.com'
+            action :add
+          end
         else
           raise "Unsupported platform: #{node['platform']}"
         end
