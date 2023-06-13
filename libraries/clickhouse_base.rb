@@ -129,9 +129,11 @@ class Chef
           end
         elsif platform?('ubuntu')
           apt_repository 'clickhouse' do
+            arch 'amd64'
             uri 'https://packages.clickhouse.com/deb'
-            distribution 'stable main'
-            key ['8919F6BD2B48D754']
+            distribution 'stable'
+            components ['main']
+            key '8919F6BD2B48D754'
             keyserver 'keyserver.ubuntu.com'
             action :add
           end
